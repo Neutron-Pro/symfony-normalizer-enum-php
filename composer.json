@@ -1,6 +1,6 @@
 {
     "name": "neutronstars/symfony-normalizer-enum-php",
-    "description": "Added an enumeration system as close as possible to PHP 8.1 for earlier versions.",
+    "description": "Added Symfony normalizer for the enumeration system designed to be as close to PHP 8.1 for earlier versions.",
     "type": "library",
     "license": [ "Apache-2.0" ],
     "authors": [
