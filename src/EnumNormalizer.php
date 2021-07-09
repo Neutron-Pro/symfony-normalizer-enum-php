@@ -9,7 +9,12 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class EnumNormalizer extends AbstractEnumNormalizer implements NormalizerInterface
 {
-    public function supportsNormalization($data, string $format = null): bool
+    /**
+     * @param mixed $data
+     * @param null $format
+     * @return bool
+     */
+    public function supportsNormalization($data, $format = null)
     {
         return is_a($data, Enum::class, true);
     }
@@ -20,7 +25,7 @@ class EnumNormalizer extends AbstractEnumNormalizer implements NormalizerInterfa
      * @param array $context
      * @return string|null
      */
-    public function normalize($object, string $format = null, array $context = []): ?string
+    public function normalize($object, $format = null, array $context = [])
     {
         if ($object instanceof Enum) {
             return (string) $object;

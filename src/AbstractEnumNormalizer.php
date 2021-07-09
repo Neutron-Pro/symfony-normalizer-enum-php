@@ -16,7 +16,7 @@ class AbstractEnumNormalizer
      * @param string|null $className
      * @throws NotNormalizableValueException
      */
-    public function __construct(?string $className = null)
+    public function __construct($className = null)
     {
         $this->className = $className ?? Enum::class;
         if ($this->className !== Enum::class

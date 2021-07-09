@@ -9,7 +9,13 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 class EnumDenormalizer extends AbstractEnumNormalizer implements DenormalizerInterface
 {
-    public function supportsDenormalization($data, string $type, string $format = null): bool
+    /**
+     * @param mixed $data
+     * @param string $type
+     * @param null $format
+     * @return bool
+     */
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return is_a($type, Enum::class, true);
     }
@@ -19,10 +25,10 @@ class EnumDenormalizer extends AbstractEnumNormalizer implements DenormalizerInt
      * @param string $type
      * @param string|null $format
      * @param array $context
-     * @return object
+     * @return Enum
      * @throws \ReflectionException
      */
-    public function denormalize($data, string $type, string $format = null, array $context = [])
+    public function denormalize($data, $type, $format = null, array $context = [])
     {
         return $this->className::from($data);
     }
